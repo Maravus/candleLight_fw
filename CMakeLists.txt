@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.13)
+
+include(cmake/gcc-arm-none-eabi-8-2019-q3-update.cmake)
+
 project(candleLightFirmware C ASM)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
 
 add_compile_options(
 	--specs=nano.specs
@@ -179,7 +182,7 @@ populate_ldscript(CPU_FAMILY STM32F042X6
 
 populate_ldscript(CPU_FAMILY STM32F072XB
 	FLASH_START 0x08000000
-	FLASH_SIZE 128k
+	FLASH_SIZE 64k
 	RAM_START 0x20000000
 	RAM_SIZE 16k
 	STACK_SIZE 2k
